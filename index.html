@@ -376,6 +376,47 @@ input,select,textarea{font:inherit;color:inherit}
 .historia p.texto{max-width:33rem;margin-top:1.5rem;line-height:1.7;color:rgb(34 16 45/.65)}
 
 /* ============================================================
+   6B. ARTESANOS QUE APOYAN EL PROYECTO  (NUEVO)
+   ============================================================ */
+.aliados{position:relative;overflow:hidden;padding:6rem 0;scroll-margin-top:6rem}
+.aliados::before{content:"";position:absolute;width:30rem;height:30rem;top:-6rem;right:-10rem;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgb(255 95 162/.14),transparent 65%)}
+.aliados::after{content:"";position:absolute;width:30rem;height:30rem;bottom:-10rem;left:-10rem;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgb(85 216 242/.2),transparent 65%)}
+.aliados .wrap{position:relative;z-index:1}
+
+.aliados__grid{display:grid;gap:1.25rem;margin-top:3rem;grid-template-columns:repeat(2,1fr)}
+@media(min-width:1024px){.aliados__grid{grid-template-columns:repeat(3,1fr);gap:1.75rem}}
+
+.aliado{
+  position:relative;overflow:hidden;aspect-ratio:4/5;border-radius:1.6rem;
+  background:var(--ink);border:1px solid rgb(34 16 45/.1);
+  box-shadow:0 18px 50px -24px rgb(34 16 45/.4);
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease);
+}
+.aliado:hover{transform:translateY(-.5rem);box-shadow:0 32px 60px -24px rgb(124 51 196/.5)}
+.aliado img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.aliado:hover img{transform:scale(1.07)}
+.aliado::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgb(34 16 45/.88) 0%,rgb(34 16 45/.25) 38%,transparent 62%);
+}
+.aliado__num{
+  position:absolute;top:1rem;left:1rem;z-index:2;
+  padding:.4rem .85rem;border-radius:999px;backdrop-filter:blur(8px);
+  background:color-mix(in srgb,var(--paper) 85%,transparent);
+  font-size:.62rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+}
+.aliado__sello{
+  position:absolute;top:1rem;right:1rem;z-index:2;display:grid;place-items:center;
+  width:2.2rem;height:2.2rem;border-radius:50%;
+  background:linear-gradient(135deg,var(--rose),var(--violet));color:#fff;font-size:.95rem;
+  box-shadow:0 8px 16px -6px rgb(124 51 196/.6);
+}
+.aliado__info{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:1.25rem;color:var(--paper)}
+.aliado__info strong{display:block;font-family:var(--font-display);font-size:1.15rem;font-weight:600;line-height:1.2}
+.aliado__info small{display:flex;align-items:center;gap:.35rem;margin-top:.25rem;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft)}
+@media(min-width:640px){.aliado__info{padding:1.5rem}.aliado__info strong{font-size:1.3rem}}
+
+/* ============================================================
    7. CÓMO FUNCIONA
    ============================================================ */
 .pasos{position:relative;overflow:hidden;background:var(--ink);color:var(--paper);padding:6rem 0;scroll-margin-top:6rem}
@@ -402,6 +443,81 @@ input,select,textarea{font:inherit;color:inherit}
 .paso:hover .paso__icono{transform:rotate(6deg) scale(1.1)}
 .paso h3{font-family:var(--font-display);font-size:1.5rem;font-weight:600;margin-top:2rem}
 .paso p{margin-top:.6rem;font-size:.875rem;line-height:1.65;color:rgb(250 243 232/.6)}
+
+/* ============================================================
+   7B. MÉTODO DE PAGO Y COMISIÓN 5%  (NUEVO)
+   ============================================================ */
+.pago{background:#fff;border-bottom:1px solid rgb(34 16 45/.08);padding:6rem 0;scroll-margin-top:6rem}
+.pago__grid{display:grid;gap:3rem;align-items:center;margin-top:3.5rem}
+@media(min-width:1024px){.pago__grid{grid-template-columns:1fr 1fr;gap:4rem}}
+
+.pago__texto{max-width:34rem;line-height:1.7;color:rgb(34 16 45/.65)}
+.pago__texto strong{color:var(--ink)}
+
+.pago__puntos{display:grid;gap:1.1rem;margin-top:2rem;list-style:none}
+.pago__puntos li{display:flex;align-items:flex-start;gap:1rem}
+.pago__puntos .rasgo__icono{flex-shrink:0}
+.pago__puntos strong{display:block;font-family:var(--font-display);font-size:1.1rem;font-weight:600}
+.pago__puntos small{font-size:.875rem;color:rgb(34 16 45/.55)}
+
+.medios{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+.medio{
+  display:inline-flex;align-items:center;gap:.45rem;padding:.55rem 1rem;border-radius:999px;
+  border:1px solid rgb(34 16 45/.15);background:var(--paper);
+  font-size:.78rem;font-weight:800;
+}
+.medio .ic{color:var(--violet);font-size:.95rem}
+
+/* Tarjeta de resumen / calculadora */
+.recibo{
+  position:relative;border-radius:2rem;padding:1.75rem;color:var(--paper);overflow:hidden;
+  background:linear-gradient(135deg,#241138 0%,#4b1c7e 55%,#8d3bc7 100%);
+  box-shadow:0 40px 80px -30px rgb(34 16 45/.6);
+}
+@media(min-width:640px){.recibo{padding:2.25rem}}
+.recibo::before{content:"";position:absolute;width:16rem;height:16rem;top:-6rem;right:-5rem;border-radius:50%;background:radial-gradient(circle,rgb(255 216 77/.28),transparent 65%);pointer-events:none}
+.recibo > *{position:relative}
+.recibo__head{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.recibo__head h3{font-family:var(--font-display);font-size:1.6rem;font-weight:600;letter-spacing:-.01em}
+.recibo__badge{
+  padding:.4rem .9rem;border-radius:999px;background:var(--sun);color:var(--ink);
+  font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;
+}
+
+.recibo__campo{display:grid;gap:.4rem;margin-top:1.5rem}
+.recibo__campo label{font-size:.65rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgb(250 243 232/.65)}
+.recibo__entrada{
+  display:flex;align-items:center;gap:.6rem;padding:.8rem 1rem;border-radius:.9rem;
+  background:rgb(255 255 255/.1);box-shadow:inset 0 0 0 1px rgb(255 255 255/.22);
+  transition:box-shadow .3s;
+}
+.recibo__entrada:focus-within{box-shadow:inset 0 0 0 2px var(--sun)}
+.recibo__entrada span{font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--sun)}
+.recibo__entrada input{
+  width:100%;background:transparent;border:0;outline:none;
+  font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--paper);
+}
+.recibo__entrada input::-webkit-outer-spin-button,.recibo__entrada input::-webkit-inner-spin-button{opacity:.5}
+
+.recibo__barra{display:flex;height:.9rem;margin-top:1.75rem;border-radius:999px;overflow:hidden;background:rgb(255 255 255/.12)}
+.recibo__barra i{display:block;height:100%;transition:width .6s var(--ease)}
+.recibo__barra .b-art{background:linear-gradient(90deg,var(--gold-soft),var(--sun));width:95%}
+.recibo__barra .b-plat{background:linear-gradient(90deg,var(--rose),var(--rose-deep));width:5%}
+
+.recibo__filas{display:grid;gap:.9rem;margin-top:1.25rem;list-style:none}
+.recibo__filas li{display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.9rem}
+.recibo__filas li span{display:flex;align-items:center;gap:.6rem;color:rgb(250 243 232/.8)}
+.recibo__filas li span::before{content:"";width:.7rem;height:.7rem;border-radius:50%;background:rgb(255 255 255/.5)}
+.recibo__filas li.f-art span::before{background:var(--sun)}
+.recibo__filas li.f-plat span::before{background:var(--rose)}
+.recibo__filas li strong{font-family:var(--font-display);font-size:1.25rem;font-weight:600}
+.recibo__total{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  margin-top:1.25rem;padding-top:1.1rem;border-top:1px dashed rgb(255 255 255/.3);
+}
+.recibo__total span{font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgb(250 243 232/.7)}
+.recibo__total strong{font-family:var(--font-display);font-size:1.9rem;font-weight:600}
+.recibo__nota{margin-top:1rem;font-size:.72rem;line-height:1.6;color:rgb(250 243 232/.6)}
 
 /* ============================================================
    8. ASÓCIATE
@@ -477,7 +593,7 @@ input,select,textarea{font:inherit;color:inherit}
    ============================================================ */
 @media(max-width:560px){
   .hero__grid{padding-top:2.5rem}
-  .coleccion,.historia,.pasos,.unete{padding-block:4rem}
+  .coleccion,.historia,.pasos,.unete,.aliados,.pago{padding-block:4rem}
 }
 </style>
 </head>
@@ -502,7 +618,9 @@ input,select,textarea{font:inherit;color:inherit}
     <nav class="nav__links" aria-label="Navegación principal">
       <a href="#coleccion">Joyas</a>
       <a href="#historia">Nuestra historia</a>
+      <a href="#aliados">Artesanos</a>
       <a href="#artesanos">Cómo funciona</a>
+      <a href="#pago">Pago</a>
       <a href="#contacto">Asóciate</a>
     </nav>
 
@@ -520,7 +638,9 @@ input,select,textarea{font:inherit;color:inherit}
   <nav class="nav__panel" id="navPanel" aria-label="Navegación móvil">
     <a href="#coleccion">Joyas</a>
     <a href="#historia">Nuestra historia</a>
+    <a href="#aliados">Artesanos</a>
     <a href="#artesanos">Cómo funciona</a>
+    <a href="#pago">Pago</a>
     <a href="#contacto">Asóciate</a>
     <a class="btn btn--ink" href="#coleccion">Ver colección</a>
   </nav>
@@ -553,7 +673,7 @@ input,select,textarea{font:inherit;color:inherit}
           Explorar joyas
           <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
-        <a class="btn btn--ghost" href="#artesanos">Conocer a los artesanos</a>
+        <a class="btn btn--ghost" href="#aliados">Conocer a los artesanos</a>
       </div>
 
       <p class="hero__nota">
@@ -800,6 +920,84 @@ input,select,textarea{font:inherit;color:inherit}
   </div>
 </section>
 
+<!-- ======================= ARTESANOS QUE APOYAN EL PROYECTO (NUEVO) ======================= -->
+<section class="aliados" id="aliados" aria-label="Artesanos que apoyan el proyecto">
+  <div class="wrap">
+
+    <div class="seccion-head">
+      <div data-reveal>
+        <p class="kicker">Manos que crean</p>
+        <h2 class="h2">Artesanos que<br><em>apoyan</em> el proyecto</h2>
+      </div>
+      <p class="lateral" data-reveal>Ellos son los artesanos y artesanas de Catacaos que confían en Estilo &amp; Ocasión para mostrar su trabajo.</p>
+    </div>
+
+    <div class="aliados__grid">
+
+      <figure class="aliado" data-reveal>
+        <img src="j1 (1).jpeg" alt="Artesano de Catacaos que apoya el proyecto" loading="lazy">
+        <span class="aliado__num">Artesano 01</span>
+        <span class="aliado__sello"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <figcaption class="aliado__info">
+          <strong>Artesano aliado</strong>
+          <small><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Catacaos, Piura</small>
+        </figcaption>
+      </figure>
+
+      <figure class="aliado" data-reveal>
+        <img src="j1 (2).jpeg" alt="Artesana de Catacaos que apoya el proyecto" loading="lazy">
+        <span class="aliado__num">Artesano 02</span>
+        <span class="aliado__sello"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <figcaption class="aliado__info">
+          <strong>Artesano aliado</strong>
+          <small><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Catacaos, Piura</small>
+        </figcaption>
+      </figure>
+
+      <figure class="aliado" data-reveal>
+        <img src="j1 (3).jpeg" alt="Artesano de filigrana que apoya el proyecto" loading="lazy">
+        <span class="aliado__num">Artesano 03</span>
+        <span class="aliado__sello"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <figcaption class="aliado__info">
+          <strong>Artesano aliado</strong>
+          <small><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Catacaos, Piura</small>
+        </figcaption>
+      </figure>
+
+      <figure class="aliado" data-reveal>
+        <img src="j1 (4).jpeg" alt="Artesana joyera que apoya el proyecto" loading="lazy">
+        <span class="aliado__num">Artesano 04</span>
+        <span class="aliado__sello"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <figcaption class="aliado__info">
+          <strong>Artesano aliado</strong>
+          <small><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Catacaos, Piura</small>
+        </figcaption>
+      </figure>
+
+      <figure class="aliado" data-reveal>
+        <img src="j1 (5).jpeg" alt="Artesano de Catacaos trabajando en su taller" loading="lazy">
+        <span class="aliado__num">Artesano 05</span>
+        <span class="aliado__sello"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <figcaption class="aliado__info">
+          <strong>Artesano aliado</strong>
+          <small><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Catacaos, Piura</small>
+        </figcaption>
+      </figure>
+
+      <figure class="aliado" data-reveal>
+        <img src="j1 (6).jpeg" alt="Artesana de Catacaos que apoya el proyecto" loading="lazy">
+        <span class="aliado__num">Artesano 06</span>
+        <span class="aliado__sello"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <figcaption class="aliado__info">
+          <strong>Artesano aliado</strong>
+          <small><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Catacaos, Piura</small>
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
 <!-- ======================= CÓMO FUNCIONA ======================= -->
 <section class="pasos" id="artesanos" aria-label="Cómo funciona">
   <div class="wrap">
@@ -839,6 +1037,84 @@ input,select,textarea{font:inherit;color:inherit}
         <h3>Conecta</h3>
         <p>Coordina directamente con el artesano o consulta cómo asociarte y hacer crecer el proyecto.</p>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= MÉTODO DE PAGO (NUEVO) ======================= -->
+<section class="pago" id="pago" aria-label="Método de pago y comisión">
+  <div class="wrap">
+
+    <div class="seccion-head">
+      <div data-reveal>
+        <p class="kicker">Método de pago</p>
+        <h2 class="h2">Pago claro,<br>comisión <em>justa</em></h2>
+      </div>
+      <p class="lateral" data-reveal>Cada compra realizada en la aplicación apoya el crecimiento del proyecto.</p>
+    </div>
+
+    <div class="pago__grid">
+
+      <div>
+        <p class="pago__texto" data-reveal>
+          Cuando compras una joya a través de la aplicación, <strong>Estilo &amp; Ocasión
+          retiene una comisión del 5 %</strong> sobre el valor de la compra. El <strong>95 % restante
+          va directamente al artesano</strong>. Esa comisión nos permite mantener la plataforma,
+          difundir el trabajo de Catacaos y seguir sumando artesanos al proyecto.
+        </p>
+
+        <ul class="pago__puntos">
+          <li data-reveal>
+            <span class="rasgo__icono rasgo__icono--oro"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg></span>
+            <span><strong>5 % para la plataforma</strong><small>Una comisión única por cada compra hecha en la aplicación.</small></span>
+          </li>
+          <li data-reveal>
+            <span class="rasgo__icono rasgo__icono--violeta"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg></span>
+            <span><strong>95 % para el artesano</strong><small>La mayor parte de cada venta llega a quien crea la pieza.</small></span>
+          </li>
+          <li data-reveal>
+            <span class="rasgo__icono rasgo__icono--cielo"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+            <span><strong>Sin costos ocultos</strong><small>El precio que ves es el precio que pagas, sin cargos extra.</small></span>
+          </li>
+        </ul>
+
+        <div class="medios" data-reveal aria-label="Medios de pago">
+          <span class="medio"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Yape</span>
+          <span class="medio"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Plin</span>
+          <span class="medio"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>Tarjeta</span>
+          <span class="medio"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>Transferencia</span>
+        </div>
+      </div>
+
+      <div class="recibo" data-reveal>
+        <div class="recibo__head">
+          <h3>Así se reparte tu compra</h3>
+          <span class="recibo__badge">5 % comisión</span>
+        </div>
+
+        <div class="recibo__campo">
+          <label for="montoCompra">Monto de la compra</label>
+          <div class="recibo__entrada">
+            <span>S/</span>
+            <input id="montoCompra" type="number" min="0" step="1" value="100" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="recibo__barra" aria-hidden="true"><i class="b-art"></i><i class="b-plat"></i></div>
+
+        <ul class="recibo__filas">
+          <li class="f-art"><span>Recibe el artesano (95 %)</span><strong id="montoArtesano">S/ 95.00</strong></li>
+          <li class="f-plat"><span>Comisión de la plataforma (5 %)</span><strong id="montoPlataforma">S/ 5.00</strong></li>
+        </ul>
+
+        <div class="recibo__total">
+          <span>Total que pagas</span>
+          <strong id="montoTotal">S/ 100.00</strong>
+        </div>
+
+        <p class="recibo__nota">La comisión del 5 % se descuenta del monto de la venta y no se suma al precio del cliente. Aplica solo a compras realizadas dentro de la aplicación.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -939,7 +1215,9 @@ input,select,textarea{font:inherit;color:inherit}
       <nav class="footer__nav" aria-label="Navegación del pie">
         <a href="#coleccion">Joyas</a>
         <a href="#historia">Nuestra historia</a>
+        <a href="#aliados">Artesanos</a>
         <a href="#artesanos">Cómo funciona</a>
+        <a href="#pago">Pago</a>
         <a href="#contacto">Asóciate</a>
       </nav>
     </div>
@@ -1027,6 +1305,22 @@ document.getElementById("formContacto").addEventListener("submit", event => {
     `Mensaje: ${f.mensaje.value}`
   );
 });
+
+/* Calculadora de comisión del 5 % (NUEVO) */
+const COMISION = 0.05;
+const montoCompra = document.getElementById("montoCompra");
+const fmt = n => "S/ " + n.toLocaleString("es-PE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+function calcularReparto() {
+  const total = Math.max(parseFloat(montoCompra.value) || 0, 0);
+  const plataforma = Math.round(total * COMISION * 100) / 100;
+  const artesano = Math.round((total - plataforma) * 100) / 100;
+  document.getElementById("montoTotal").textContent = fmt(total);
+  document.getElementById("montoPlataforma").textContent = fmt(plataforma);
+  document.getElementById("montoArtesano").textContent = fmt(artesano);
+}
+montoCompra.addEventListener("input", calcularReparto);
+calcularReparto();
 
 /* Año actual en el pie */
 document.getElementById("anio").textContent = new Date().getFullYear();
